@@ -11,7 +11,9 @@ import {
 } from "@/components/ui/select";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns";
-
+interface form {
+  name:string
+}
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -191,7 +193,6 @@ function BookingForm({ car }: any) {
                 required
                 mode="single"
                 selected={date}
-                name="pickUpDate"
                 onSelect={(selectedDate: any) => {
                   setDate(selectedDate);
                   handleSelectChange(
@@ -224,7 +225,6 @@ function BookingForm({ car }: any) {
                 required
                 mode="single"
                 selected={dateOff}
-                name="dropOffDate"
                 onSelect={(selectedDateOff: any) => {
                   setDateOff(selectedDateOff);
                   handleSelectChange(

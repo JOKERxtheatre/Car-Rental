@@ -1,12 +1,12 @@
 import Image from "next/image";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import copy from "clipboard-copy";
 
 function Footer() {
   const [isCopied, setIsCopied] = useState(false);
 
-  const handleCopyClick = async (text :any) => {
+  const handleCopyClick = async (text: string | null) => {
+    if (!text) return;
     try {
       await copy(text);
       setIsCopied(true);
@@ -57,13 +57,13 @@ function Footer() {
         <div className="tooltip" data-tip={isCopied ? "Copied!" : "Copy to Clipboard"}>
           <h1>
             Number: 
-            <span onClick={(e) => handleCopyClick(e.target.textContent)} className="text-blue-500 underline"> +998990903456</span>
+            <span onClick={(e) => handleCopyClick((e.target as HTMLSpanElement).textContent)} className="text-blue-500 underline"> +998990903456</span>
           </h1>
         </div>
         <div className="tooltip" data-tip={isCopied ? "Copied!" : "Copy to Clipboard"}>
           <h1>
             Telegram: 
-            <span onClick={(e) => handleCopyClick(e.target.textContent)} className="text-green-500 underline"> @QXumoyun</span>
+            <span onClick={(e) => handleCopyClick((e.target as HTMLSpanElement).textContent)} className="text-green-500 underline"> @QXumoyun</span>
           </h1>
         </div>
       </div>

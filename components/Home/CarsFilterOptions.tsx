@@ -7,25 +7,34 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-function CarsFilterOptions({ carsList,setBrand,orderCarList }: any) {
-  const [brandList, setBrandList] = useState<any>([]);
-  const BrandSet = new Set();
+interface CarsFilterOptionsProps {
+  carsList: any;
+  setBrand: (brand: string) => void;
+  orderCarList: (order: string) => void;
+}
+
+function CarsFilterOptions({ carsList, setBrand, orderCarList }: CarsFilterOptionsProps) {
+  const [brandList, setBrandList] = useState<string[]>([]);
+  const BrandSet = new Set<string>();
+
   useEffect(() => {
     if (carsList) {
       filterCarList();
     }
   }, [carsList]);
+
   const filterCarList = () => {
     carsList.forEach((element: any) => {
       BrandSet.add(element.carBrand);
     });
     setBrandList(Array.from(BrandSet));
   };
+
   return (
-    <div className="mt-10 md:flex items-center justify-between mb-2"  id="Cars">
-      <div className="">
+    <div className="mt-10 md:flex items-center justify-between mb-2" id="Cars">
+      <div>
         <h2 className="text-[30px] font-bold">Cars Catalog</h2>
-        <h3>Explore our cars you might likes</h3>
+        <h3>Explore our cars you might like</h3>
       </div>
       <div className="flex items-center md:gap-5 gap-2 mt-3 md:mt-0">
         <Select onValueChange={(value) => orderCarList(value)}>
@@ -33,8 +42,8 @@ function CarsFilterOptions({ carsList,setBrand,orderCarList }: any) {
             <SelectValue placeholder="Price" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value={1}>Max to Min</SelectItem>
-            <SelectItem value={-1}>Min to Max</SelectItem>
+            <SelectItem value="1">Max to Min</SelectItem>
+            <SelectItem value="-1">Min to Max</SelectItem>
           </SelectContent>
         </Select>
         <Select onValueChange={(value) => setBrand(value)}>

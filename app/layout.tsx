@@ -1,3 +1,5 @@
+// RootLayout.tsx
+
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
@@ -18,17 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
       <html lang="en" data-theme="aqua">
         <body className={inter.className}>
-          
-        <Toaster/>
+          <Toaster />
           <SignedIn>
-            <Navbar/>
+            <Navbar />
             {children}
-            </SignedIn>
+          </SignedIn>
           <SignedOut>
-            <SignIn routing="hash"/>
+            <SignIn routing="hash" />
           </SignedOut>
         </body>
       </html>

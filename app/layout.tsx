@@ -10,8 +10,8 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Car Rent",
-  description: "Car renting web site",
+  title: "Car Rental",
+  description: "On this website you can choose the car you like and rent it for yourself",
 };
 
 export default function RootLayout({

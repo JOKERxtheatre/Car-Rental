@@ -23,7 +23,7 @@ function Footer() {
       className="flex flex-col-reverse md:flex-row-reverse items-center justify-center gap-5 md:gap-10 mt-14"
       id="ContactUs"
     >
-      <div className="flex items-start justify-center flex-col bg-blue-100 p-2 rounded-lg">
+      <div className="flex items-center justify-center flex-col bg-blue-100 p-2 rounded-lg w-full md:w-auto">
         <div className="flex items-center justify-start gap-2">
           <h1>Uzbekistan</h1>
           <Image
@@ -44,7 +44,7 @@ function Footer() {
             className=" w-[26px] h-[26px]"
           />
         </div>
-        <div className="flex items-center justify-start gap-2">
+        <div className="flex items-center justify-start gap-1">
           <h1>Yangihayot tumani</h1>
           <Image
             src="/yangihayot.png"
@@ -54,20 +54,21 @@ function Footer() {
             className=" w-[25px] h-[25px]"
           />
         </div>
+        
+        <div className="tooltip" data-tip={isCopied ? "Copied!" : "Copy to Clipboard"}>
+          <h1>
+            Telegram:   
+            <span onClick={(e) => handleCopyClick((e.target as HTMLSpanElement).textContent)} className="text-green-500 underline ml-2"> @QXumoyun</span>
+          </h1>
+        </div>
         <div className="tooltip" data-tip={isCopied ? "Copied!" : "Copy to Clipboard"}>
           <h1>
             Number: 
             <span onClick={(e) => handleCopyClick((e.target as HTMLSpanElement).textContent)} className="text-blue-500 underline"> +998990903456</span>
           </h1>
         </div>
-        <div className="tooltip" data-tip={isCopied ? "Copied!" : "Copy to Clipboard"}>
-          <h1>
-            Telegram: 
-            <span onClick={(e) => handleCopyClick((e.target as HTMLSpanElement).textContent)} className="text-green-500 underline"> @QXumoyun</span>
-          </h1>
-        </div>
       </div>
-      <div className="flex items-center justify-center flex-col bg-blue-200 w-[200px] h-[145px] rounded-lg">
+      <div className="flex items-center justify-center flex-col bg-blue-200 w-full md:w-[200px] h-[145px] rounded-lg">
         <Image
           src="/me.png"
           alt="my photo"

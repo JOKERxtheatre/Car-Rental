@@ -41,7 +41,7 @@ function CarCard(props: any) {
                 className="w-auto h-auto"
               />
             </div>
-            <div className=" justify-around flex group-hover:hidden w-full">
+            <div className="justify-around flex group-hover:hidden w-full">
               <div className="text-center text-gray-500">
                 <PiSteeringWheelFill className="w-full text-[22px] mb-2" />
                 <h2 className=" line-clamp-5 text-[14px] font-light">
